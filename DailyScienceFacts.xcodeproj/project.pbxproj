@@ -1,0 +1,684 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0E37811E2CAC9672008527E2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E37811C2CAC9672008527E2 /* ContentView.swift */; };
+		0E3781292CAC9D85008527E2 /* Preprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3781282CAC9D85008527E2 /* Preprint.swift */; };
+		0E37812B2CAC9DBF008527E2 /* PreprintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E37812A2CAC9DBF008527E2 /* PreprintView.swift */; };
+		0E37812D2CAC9DD0008527E2 /* BottomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E37812C2CAC9DD0008527E2 /* BottomNavigationBar.swift */; };
+		0E37812F2CAC9DE6008527E2 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E37812E2CAC9DE6008527E2 /* ContentViewModel.swift */; };
+		0E3781312CAC9E02008527E2 /* ArxivService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3781302CAC9E02008527E2 /* ArxivService.swift */; };
+		0E37813C2CACA7C0008527E2 /* SWXMLHash in Frameworks */ = {isa = PBXBuildFile; productRef = 0E37813B2CACA7C0008527E2 /* SWXMLHash */; };
+		0E5FC1B72CACEDC4002B200E /* ArxivServiceStatic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5FC1B62CACEDC4002B200E /* ArxivServiceStatic.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0E02A4932CA7B3E0003BB051 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E02A47A2CA7B3D8003BB051 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0E02A4812CA7B3D8003BB051;
+			remoteInfo = DailyScienceFacts;
+		};
+		0E02A49D2CA7B3E0003BB051 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E02A47A2CA7B3D8003BB051 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0E02A4812CA7B3D8003BB051;
+			remoteInfo = DailyScienceFacts;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0E02A4822CA7B3D8003BB051 /* DailyScienceFacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyScienceFacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E02A4922CA7B3E0003BB051 /* DailyScienceFactsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyScienceFactsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E02A49C2CA7B3E0003BB051 /* DailyScienceFactsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyScienceFactsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E37811C2CAC9672008527E2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0E3781282CAC9D85008527E2 /* Preprint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preprint.swift; sourceTree = "<group>"; };
+		0E37812A2CAC9DBF008527E2 /* PreprintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreprintView.swift; sourceTree = "<group>"; };
+		0E37812C2CAC9DD0008527E2 /* BottomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavigationBar.swift; sourceTree = "<group>"; };
+		0E37812E2CAC9DE6008527E2 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		0E3781302CAC9E02008527E2 /* ArxivService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArxivService.swift; sourceTree = "<group>"; };
+		0E5FC1B62CACEDC4002B200E /* ArxivServiceStatic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArxivServiceStatic.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		0E37813E2CACADF4008527E2 /* Exceptions for "DailyScienceFacts" folder in "DailyScienceFacts" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 0E02A4812CA7B3D8003BB051 /* DailyScienceFacts */;
+		};
+		0E59EBAC2CAE35630066B663 /* Exceptions for "Tests" folder in "DailyScienceFacts" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				DailyScienceFactsTests/DailyScienceFactsTests.swift,
+				DailyScienceFactsUITests/DailyScienceFactsUITests.swift,
+				DailyScienceFactsUITests/DailyScienceFactsUITestsLaunchTests.swift,
+			);
+			target = 0E02A4812CA7B3D8003BB051 /* DailyScienceFacts */;
+		};
+		0E59EBAD2CAE35630066B663 /* Exceptions for "Tests" folder in "DailyScienceFactsTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				DailyScienceFactsTests/DailyScienceFactsTests.swift,
+			);
+			target = 0E02A4912CA7B3E0003BB051 /* DailyScienceFactsTests */;
+		};
+		0E59EBB32CAE356D0066B663 /* Exceptions for "Tests" folder in "DailyScienceFactsUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				DailyScienceFactsUITests/DailyScienceFactsUITests.swift,
+				DailyScienceFactsUITests/DailyScienceFactsUITestsLaunchTests.swift,
+			);
+			target = 0E02A49B2CA7B3E0003BB051 /* DailyScienceFactsUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		0E02A4842CA7B3D8003BB051 /* DailyScienceFacts */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				0E37813E2CACADF4008527E2 /* Exceptions for "DailyScienceFacts" folder in "DailyScienceFacts" target */,
+			);
+			path = DailyScienceFacts;
+			sourceTree = "<group>";
+		};
+		0E59EBA82CAE35370066B663 /* Tests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				0E59EBAC2CAE35630066B663 /* Exceptions for "Tests" folder in "DailyScienceFacts" target */,
+				0E59EBAD2CAE35630066B663 /* Exceptions for "Tests" folder in "DailyScienceFactsTests" target */,
+				0E59EBB32CAE356D0066B663 /* Exceptions for "Tests" folder in "DailyScienceFactsUITests" target */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0E02A47F2CA7B3D8003BB051 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E37813C2CACA7C0008527E2 /* SWXMLHash in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E02A48F2CA7B3E0003BB051 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E02A4992CA7B3E0003BB051 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0E02A4792CA7B3D8003BB051 = {
+			isa = PBXGroup;
+			children = (
+				0E3781332CACA09D008527E2 /* Models */,
+				0E3781342CACA0D8008527E2 /* Views */,
+				0E3781352CACA114008527E2 /* ViewModels */,
+				0E3781362CACA14A008527E2 /* Services */,
+				0E02A4842CA7B3D8003BB051 /* DailyScienceFacts */,
+				0E59EBA82CAE35370066B663 /* Tests */,
+				0E02A4832CA7B3D8003BB051 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0E02A4832CA7B3D8003BB051 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0E02A4822CA7B3D8003BB051 /* DailyScienceFacts.app */,
+				0E02A4922CA7B3E0003BB051 /* DailyScienceFactsTests.xctest */,
+				0E02A49C2CA7B3E0003BB051 /* DailyScienceFactsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0E3781332CACA09D008527E2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0E3781282CAC9D85008527E2 /* Preprint.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0E3781342CACA0D8008527E2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0E37811C2CAC9672008527E2 /* ContentView.swift */,
+				0E37812A2CAC9DBF008527E2 /* PreprintView.swift */,
+				0E37812C2CAC9DD0008527E2 /* BottomNavigationBar.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0E3781352CACA114008527E2 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0E37812E2CAC9DE6008527E2 /* ContentViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0E3781362CACA14A008527E2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0E5FC1B62CACEDC4002B200E /* ArxivServiceStatic.swift */,
+				0E3781302CAC9E02008527E2 /* ArxivService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0E02A4812CA7B3D8003BB051 /* DailyScienceFacts */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0E02A4A62CA7B3E0003BB051 /* Build configuration list for PBXNativeTarget "DailyScienceFacts" */;
+			buildPhases = (
+				0E02A47E2CA7B3D8003BB051 /* Sources */,
+				0E02A47F2CA7B3D8003BB051 /* Frameworks */,
+				0E02A4802CA7B3D8003BB051 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				0E02A4842CA7B3D8003BB051 /* DailyScienceFacts */,
+				0E59EBA82CAE35370066B663 /* Tests */,
+			);
+			name = DailyScienceFacts;
+			packageProductDependencies = (
+				0E37813B2CACA7C0008527E2 /* SWXMLHash */,
+			);
+			productName = DailyScienceFacts;
+			productReference = 0E02A4822CA7B3D8003BB051 /* DailyScienceFacts.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0E02A4912CA7B3E0003BB051 /* DailyScienceFactsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0E02A4A92CA7B3E0003BB051 /* Build configuration list for PBXNativeTarget "DailyScienceFactsTests" */;
+			buildPhases = (
+				0E02A48E2CA7B3E0003BB051 /* Sources */,
+				0E02A48F2CA7B3E0003BB051 /* Frameworks */,
+				0E02A4902CA7B3E0003BB051 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0E02A4942CA7B3E0003BB051 /* PBXTargetDependency */,
+			);
+			name = DailyScienceFactsTests;
+			packageProductDependencies = (
+			);
+			productName = DailyScienceFactsTests;
+			productReference = 0E02A4922CA7B3E0003BB051 /* DailyScienceFactsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0E02A49B2CA7B3E0003BB051 /* DailyScienceFactsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0E02A4AC2CA7B3E0003BB051 /* Build configuration list for PBXNativeTarget "DailyScienceFactsUITests" */;
+			buildPhases = (
+				0E02A4982CA7B3E0003BB051 /* Sources */,
+				0E02A4992CA7B3E0003BB051 /* Frameworks */,
+				0E02A49A2CA7B3E0003BB051 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0E02A49E2CA7B3E0003BB051 /* PBXTargetDependency */,
+			);
+			name = DailyScienceFactsUITests;
+			packageProductDependencies = (
+			);
+			productName = DailyScienceFactsUITests;
+			productReference = 0E02A49C2CA7B3E0003BB051 /* DailyScienceFactsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0E02A47A2CA7B3D8003BB051 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					0E02A4812CA7B3D8003BB051 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					0E02A4912CA7B3E0003BB051 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 0E02A4812CA7B3D8003BB051;
+					};
+					0E02A49B2CA7B3E0003BB051 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 0E02A4812CA7B3D8003BB051;
+					};
+				};
+			};
+			buildConfigurationList = 0E02A47D2CA7B3D8003BB051 /* Build configuration list for PBXProject "DailyScienceFacts" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0E02A4792CA7B3D8003BB051;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				0E37813A2CACA7C0008527E2 /* XCRemoteSwiftPackageReference "SWXMLHash" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 0E02A4832CA7B3D8003BB051 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0E02A4812CA7B3D8003BB051 /* DailyScienceFacts */,
+				0E02A4912CA7B3E0003BB051 /* DailyScienceFactsTests */,
+				0E02A49B2CA7B3E0003BB051 /* DailyScienceFactsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0E02A4802CA7B3D8003BB051 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E02A4902CA7B3E0003BB051 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E02A49A2CA7B3E0003BB051 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0E02A47E2CA7B3D8003BB051 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E3781312CAC9E02008527E2 /* ArxivService.swift in Sources */,
+				0E37812B2CAC9DBF008527E2 /* PreprintView.swift in Sources */,
+				0E37812D2CAC9DD0008527E2 /* BottomNavigationBar.swift in Sources */,
+				0E37812F2CAC9DE6008527E2 /* ContentViewModel.swift in Sources */,
+				0E37811E2CAC9672008527E2 /* ContentView.swift in Sources */,
+				0E5FC1B72CACEDC4002B200E /* ArxivServiceStatic.swift in Sources */,
+				0E3781292CAC9D85008527E2 /* Preprint.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E02A48E2CA7B3E0003BB051 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E02A4982CA7B3E0003BB051 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0E02A4942CA7B3E0003BB051 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0E02A4812CA7B3D8003BB051 /* DailyScienceFacts */;
+			targetProxy = 0E02A4932CA7B3E0003BB051 /* PBXContainerItemProxy */;
+		};
+		0E02A49E2CA7B3E0003BB051 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0E02A4812CA7B3D8003BB051 /* DailyScienceFacts */;
+			targetProxy = 0E02A49D2CA7B3E0003BB051 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0E02A4A42CA7B3E0003BB051 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0E02A4A52CA7B3E0003BB051 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0E02A4A72CA7B3E0003BB051 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"DailyScienceFacts/Preview Content\"";
+				DEVELOPMENT_TEAM = 64J5YKG25B;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DailyScienceFacts/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vcekron.sciencefacts.DailyScienceFacts;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0E02A4A82CA7B3E0003BB051 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"DailyScienceFacts/Preview Content\"";
+				DEVELOPMENT_TEAM = 64J5YKG25B;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DailyScienceFacts/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vcekron.sciencefacts.DailyScienceFacts;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		0E02A4AA2CA7B3E0003BB051 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 64J5YKG25B;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vcekron.sciencefacts.DailyScienceFactsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DailyScienceFacts.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DailyScienceFacts";
+			};
+			name = Debug;
+		};
+		0E02A4AB2CA7B3E0003BB051 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 64J5YKG25B;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vcekron.sciencefacts.DailyScienceFactsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DailyScienceFacts.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DailyScienceFacts";
+			};
+			name = Release;
+		};
+		0E02A4AD2CA7B3E0003BB051 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 64J5YKG25B;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vcekron.sciencefacts.DailyScienceFactsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DailyScienceFacts;
+			};
+			name = Debug;
+		};
+		0E02A4AE2CA7B3E0003BB051 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 64J5YKG25B;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vcekron.sciencefacts.DailyScienceFactsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DailyScienceFacts;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0E02A47D2CA7B3D8003BB051 /* Build configuration list for PBXProject "DailyScienceFacts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E02A4A42CA7B3E0003BB051 /* Debug */,
+				0E02A4A52CA7B3E0003BB051 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0E02A4A62CA7B3E0003BB051 /* Build configuration list for PBXNativeTarget "DailyScienceFacts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E02A4A72CA7B3E0003BB051 /* Debug */,
+				0E02A4A82CA7B3E0003BB051 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0E02A4A92CA7B3E0003BB051 /* Build configuration list for PBXNativeTarget "DailyScienceFactsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E02A4AA2CA7B3E0003BB051 /* Debug */,
+				0E02A4AB2CA7B3E0003BB051 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0E02A4AC2CA7B3E0003BB051 /* Build configuration list for PBXNativeTarget "DailyScienceFactsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E02A4AD2CA7B3E0003BB051 /* Debug */,
+				0E02A4AE2CA7B3E0003BB051 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0E37813A2CACA7C0008527E2 /* XCRemoteSwiftPackageReference "SWXMLHash" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/drmohundro/SWXMLHash";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0E37813B2CACA7C0008527E2 /* SWXMLHash */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E37813A2CACA7C0008527E2 /* XCRemoteSwiftPackageReference "SWXMLHash" */;
+			productName = SWXMLHash;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 0E02A47A2CA7B3D8003BB051 /* Project object */;
+}
