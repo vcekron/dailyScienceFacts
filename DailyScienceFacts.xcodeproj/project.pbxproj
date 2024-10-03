@@ -15,6 +15,9 @@
 		0E3781312CAC9E02008527E2 /* ArxivService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3781302CAC9E02008527E2 /* ArxivService.swift */; };
 		0E37813C2CACA7C0008527E2 /* SWXMLHash in Frameworks */ = {isa = PBXBuildFile; productRef = 0E37813B2CACA7C0008527E2 /* SWXMLHash */; };
 		0E5FC1B72CACEDC4002B200E /* ArxivServiceStatic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5FC1B62CACEDC4002B200E /* ArxivServiceStatic.swift */; };
+		0EAB62C82CAE424700A68237 /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 0EAB62C72CAE424700A68237 /* OpenAI */; };
+		0EAB62CC2CAE49BD00A68237 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAB62CB2CAE49B500A68237 /* Config.swift */; };
+		0EAB62CF2CAE5B0B00A68237 /* APIKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAB62CE2CAE5A3400A68237 /* APIKeyManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,8 @@
 		0E37812E2CAC9DE6008527E2 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		0E3781302CAC9E02008527E2 /* ArxivService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArxivService.swift; sourceTree = "<group>"; };
 		0E5FC1B62CACEDC4002B200E /* ArxivServiceStatic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArxivServiceStatic.swift; sourceTree = "<group>"; };
+		0EAB62CB2CAE49B500A68237 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		0EAB62CE2CAE5A3400A68237 /* APIKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeyManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -107,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EAB62C82CAE424700A68237 /* OpenAI in Frameworks */,
 				0E37813C2CACA7C0008527E2 /* SWXMLHash in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,10 +137,12 @@
 		0E02A4792CA7B3D8003BB051 = {
 			isa = PBXGroup;
 			children = (
+				0EAB62CB2CAE49B500A68237 /* Config.swift */,
 				0E3781332CACA09D008527E2 /* Models */,
 				0E3781342CACA0D8008527E2 /* Views */,
 				0E3781352CACA114008527E2 /* ViewModels */,
 				0E3781362CACA14A008527E2 /* Services */,
+				0EAB62CD2CAE5A0900A68237 /* Utilities */,
 				0E02A4842CA7B3D8003BB051 /* DailyScienceFacts */,
 				0E59EBA82CAE35370066B663 /* Tests */,
 				0E02A4832CA7B3D8003BB051 /* Products */,
@@ -186,6 +194,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		0EAB62CD2CAE5A0900A68237 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0EAB62CE2CAE5A3400A68237 /* APIKeyManager.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -208,6 +224,7 @@
 			name = DailyScienceFacts;
 			packageProductDependencies = (
 				0E37813B2CACA7C0008527E2 /* SWXMLHash */,
+				0EAB62C72CAE424700A68237 /* OpenAI */,
 			);
 			productName = DailyScienceFacts;
 			productReference = 0E02A4822CA7B3D8003BB051 /* DailyScienceFacts.app */;
@@ -287,6 +304,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				0E37813A2CACA7C0008527E2 /* XCRemoteSwiftPackageReference "SWXMLHash" */,
+				0EAB62C62CAE424700A68237 /* XCRemoteSwiftPackageReference "OpenAI" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 0E02A4832CA7B3D8003BB051 /* Products */;
@@ -329,8 +347,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EAB62CF2CAE5B0B00A68237 /* APIKeyManager.swift in Sources */,
 				0E3781312CAC9E02008527E2 /* ArxivService.swift in Sources */,
 				0E37812B2CAC9DBF008527E2 /* PreprintView.swift in Sources */,
+				0EAB62CC2CAE49BD00A68237 /* Config.swift in Sources */,
 				0E37812D2CAC9DD0008527E2 /* BottomNavigationBar.swift in Sources */,
 				0E37812F2CAC9DE6008527E2 /* ContentViewModel.swift in Sources */,
 				0E37811E2CAC9672008527E2 /* ContentView.swift in Sources */,
@@ -670,6 +690,14 @@
 				minimumVersion = 8.1.0;
 			};
 		};
+		0EAB62C62CAE424700A68237 /* XCRemoteSwiftPackageReference "OpenAI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MacPaw/OpenAI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -677,6 +705,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0E37813A2CACA7C0008527E2 /* XCRemoteSwiftPackageReference "SWXMLHash" */;
 			productName = SWXMLHash;
+		};
+		0EAB62C72CAE424700A68237 /* OpenAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0EAB62C62CAE424700A68237 /* XCRemoteSwiftPackageReference "OpenAI" */;
+			productName = OpenAI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

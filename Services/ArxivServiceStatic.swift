@@ -4,13 +4,38 @@
 
 import Foundation
 import SWXMLHash
+import OpenAI
 
 class ArxivServiceStatic {
     func fetchLatestPreprint() async throws -> Preprint? {
         guard let sampleData = getRandomSampleData() else { return nil }
         guard let data = sampleData.data(using: .utf8) else { return nil }
-        let preprints = try parseArxivData(data)
+        let preprints = try await parseArxivData(data)
         return preprints.first
+    }
+    
+    func generateFact(from summary: String) async throws -> String {
+        let apiKey = APIKeyManager.getAPIKey()
+        let openAI = OpenAI(apiToken: apiKey)
+        let prompt = """
+        Generate one factual sentance to summarize the following text. Make it as short and consise as possible! ONLY RETURN THE GENERATED SENTANCE!
+
+        \(summary)
+        """
+
+        guard let userMessage = ChatQuery.ChatCompletionMessageParam(role: .user, content: prompt) else {
+            throw NSError(domain: "ArxivServiceStatic", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to create user message."])
+        }
+
+        let chatQuery = ChatQuery(
+            messages: [userMessage],
+            model: .gpt4_o_mini,
+            maxTokens: 250,
+            temperature: 0.5
+        )
+
+        let result = try await openAI.chats(query: chatQuery)
+        return result.choices.first?.message.content?.string ?? "No fact generated"
     }
 
     private func getRandomSampleData() -> String? {
@@ -19,26 +44,28 @@ class ArxivServiceStatic {
         return sampleDataOptions[randomIndex]
     }
 
-    private func parseArxivData(_ data: Data) throws -> [Preprint] {
+    private func parseArxivData(_ data: Data) async throws -> [Preprint] {
         let xml = SWXMLHash.XMLHash.parse(data)
         var preprints: [Preprint] = []
-
+        
         for entry in xml["feed"]["entry"].all {
             let id = entry["id"].element?.text ?? ""
             
             var title = entry["title"].element?.text ?? "No Title"
             title = title.replacingOccurrences(of: "\\s+", with: " ", options: .regularExpression)
             title = title.trimmingCharacters(in: .whitespacesAndNewlines)
-
+            
             var summary = entry["summary"].element?.text ?? "No Summary"
             summary = summary.replacingOccurrences(of: "\\s+", with: " ", options: .regularExpression)
             summary = summary.trimmingCharacters(in: .whitespacesAndNewlines)
-
+            
             let authors = entry["author"].all.compactMap { $0["name"].element?.text }
             let link = entry["id"].element?.text ?? ""
             let publishedString = entry["published"].element?.text ?? ""
             let publishedDate = ISO8601DateFormatter().date(from: publishedString) ?? Date()
-
+            
+            let fact = try await generateFact(from: summary)
+            
             let preprint = Preprint(
                 id: id,
                 title: title,
@@ -46,12 +73,12 @@ class ArxivServiceStatic {
                 authors: authors,
                 link: link,
                 publishedDate: publishedDate,
-                fact: "An improved one-to-all communication algorithm for higher-dimensional Eisenstein-Jacobi networks reduces the average number of steps for message broadcasting and demonstrates better traffic performance compared to traditional algorithms, achieving 2.7% less total number of senders."
+                fact: fact
             )
-
+            
             preprints.append(preprint)
         }
-
+        
         return preprints
     }
 
@@ -291,6 +318,112 @@ class ArxivServiceStatic {
             <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
             <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
             <category term="05C50;11C20;05C22;15A36" scheme="http://arxiv.org/schemas/atom"/>
+          </entry>
+        </feed>
+        """
+        ,
+        """
+        <?xml version="1.0" encoding="UTF-8"?>
+        <feed xmlns="http://www.w3.org/2005/Atom">
+          <link href="http://arxiv.org/api/query?search_query%3Dall%26id_list%3D%26start%3D0%26max_results%3D1" rel="self" type="application/atom+xml"/>
+          <title type="html">ArXiv Query: search_query=all&amp;id_list=&amp;start=0&amp;max_results=1</title>
+          <id>http://arxiv.org/api/qNUQqYTSBqOn9wk3n+Jqa7/eio4</id>
+          <updated>2024-10-03T00:00:00-04:00</updated>
+          <opensearch:totalResults xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">369896</opensearch:totalResults>
+          <opensearch:startIndex xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">0</opensearch:startIndex>
+          <opensearch:itemsPerPage xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">1</opensearch:itemsPerPage>
+          <entry>
+            <id>http://arxiv.org/abs/2410.01802v1</id>
+            <updated>2024-10-02T17:57:38Z</updated>
+            <published>2024-10-02T17:57:38Z</published>
+            <title>PROXI: Challenging the GNNs for Link Prediction</title>
+            <summary>  Over the past decade, Graph Neural Networks (GNNs) have transformed graph
+        representation learning. In the widely adopted message-passing GNN framework,
+        nodes refine their representations by aggregating information from neighboring
+        nodes iteratively. While GNNs excel in various domains, recent theoretical
+        studies have raised concerns about their capabilities. GNNs aim to address
+        various graph-related tasks by utilizing such node representations, however,
+        this one-size-fits-all approach proves suboptimal for diverse tasks.
+          Motivated by these observations, we conduct empirical tests to compare the
+        performance of current GNN models with more conventional and direct methods in
+        link prediction tasks. Introducing our model, PROXI, which leverages proximity
+        information of node pairs in both graph and attribute spaces, we find that
+        standard machine learning (ML) models perform competitively, even outperforming
+        cutting-edge GNN models when applied to these proximity metrics derived from
+        node neighborhoods and attributes. This holds true across both homophilic and
+        heterophilic networks, as well as small and large benchmark datasets, including
+        those from the Open Graph Benchmark (OGB). Moreover, we show that augmenting
+        traditional GNNs with PROXI significantly boosts their link prediction
+        performance. Our empirical findings corroborate the previously mentioned
+        theoretical observations and imply that there exists ample room for enhancement
+        in current GNN models to reach their potential.
+        </summary>
+            <author>
+              <name>Astrit Tola</name>
+            </author>
+            <author>
+              <name>Jack Myrick</name>
+            </author>
+            <author>
+              <name>Baris Coskunuzer</name>
+            </author>
+            <link href="http://arxiv.org/abs/2410.01802v1" rel="alternate" type="text/html"/>
+            <link title="pdf" href="http://arxiv.org/pdf/2410.01802v1" rel="related" type="application/pdf"/>
+            <arxiv:primary_category xmlns:arxiv="http://arxiv.org/schemas/atom" term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+            <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+            <category term="cs.CG" scheme="http://arxiv.org/schemas/atom"/>
+          </entry>
+        </feed>
+        """
+        ,
+        """
+        <?xml version="1.0" encoding="UTF-8"?>
+        <feed xmlns="http://www.w3.org/2005/Atom">
+          <link href="http://arxiv.org/api/query?search_query%3Dall%26id_list%3D%26start%3D2%26max_results%3D1" rel="self" type="application/atom+xml"/>
+          <title type="html">ArXiv Query: search_query=all&amp;id_list=&amp;start=2&amp;max_results=1</title>
+          <id>http://arxiv.org/api/YtXMZe3fucOLKoUfMrnDZUPygwM</id>
+          <updated>2024-10-03T00:00:00-04:00</updated>
+          <opensearch:totalResults xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">369896</opensearch:totalResults>
+          <opensearch:startIndex xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">2</opensearch:startIndex>
+          <opensearch:itemsPerPage xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">1</opensearch:itemsPerPage>
+          <entry>
+            <id>http://arxiv.org/abs/2410.01798v1</id>
+            <updated>2024-10-02T17:55:46Z</updated>
+            <published>2024-10-02T17:55:46Z</published>
+            <title>Windowed MAPF with Completeness Guarantees</title>
+            <summary>  Traditional multi-agent path finding (MAPF) methods try to compute entire
+        start-goal paths which are collision free. However, computing an entire path
+        can take too long for MAPF systems where agents need to replan fast. Methods
+        that address this typically employ a "windowed" approach and only try to find
+        collision free paths for a small windowed timestep horizon. This adaptation
+        comes at the cost of incompleteness; all current windowed approaches can become
+        stuck in deadlock or livelock. Our main contribution is to introduce our
+        framework, WinC-MAPF, for Windowed MAPF that enables completeness. Our
+        framework uses heuristic update insights from single-agent real-time heuristic
+        search algorithms as well as agent independence ideas from MAPF algorithms. We
+        also develop Single-Step CBS (SS-CBS), an instantiation of this framework using
+        a novel modification to CBS. We show how SS-CBS, which only plans a single step
+        and updates heuristics, can effectively solve tough scenarios where existing
+        windowed approaches fail.
+        </summary>
+            <author>
+              <name>Rishi Veerapaneni</name>
+            </author>
+            <author>
+              <name>Muhammad Suhail Saleem</name>
+            </author>
+            <author>
+              <name>Jiaoyang Li</name>
+            </author>
+            <author>
+              <name>Maxim Likhachev</name>
+            </author>
+            <link href="http://arxiv.org/abs/2410.01798v1" rel="alternate" type="text/html"/>
+            <link title="pdf" href="http://arxiv.org/pdf/2410.01798v1" rel="related" type="application/pdf"/>
+            <arxiv:primary_category xmlns:arxiv="http://arxiv.org/schemas/atom" term="cs.MA" scheme="http://arxiv.org/schemas/atom"/>
+            <category term="cs.MA" scheme="http://arxiv.org/schemas/atom"/>
+            <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+            <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
           </entry>
         </feed>
         """
