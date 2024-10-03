@@ -66,7 +66,7 @@ struct PreprintView: View {
 
                 // Abstract
                 Text(preprint.abstract)
-                    .padding(.horizontal)
+                    .padding([.horizontal, .bottom])
             }
         }
         .onAppear {
