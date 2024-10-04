@@ -44,7 +44,12 @@ struct PreprintView: View {
                                    startPoint: .topLeading,
                                    endPoint: .bottomTrailing)
                         .ignoresSafeArea(edges: .top)
-                    
+                        .onTapGesture {
+                            // Change colors on tap
+                            colors = [randomColor(), randomColor()]
+                            updateFactTextColor()
+                        }
+
                     Text(preprint.fact)
                         .font(.custom("Palatino", size: 22))
                         .bold()
@@ -52,6 +57,11 @@ struct PreprintView: View {
                         .padding(.vertical, 40)
                         .multilineTextAlignment(.center)
                         .foregroundColor(factTextColor) // Set dynamic text color for preprint.fact
+                        .onTapGesture {
+                            // Change colors on tap of text
+                            colors = [randomColor(), randomColor()]
+                            updateFactTextColor()
+                        }
                 }
 
                 // Title
