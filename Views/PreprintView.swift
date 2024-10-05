@@ -39,9 +39,13 @@ struct PreprintView: View {
                                 changeColors(withDuration: 0.5) // Change colors on tap
                             }
                             .transition(.opacity) // Fade in text once it's ready
+                            .animation(.easeInOut(duration: 0.5), value: isLoading) // Animate based on isLoading
                     } else {
                         // Placeholder height while the fact is loading
-                        Rectangle().fill(Color.clear).frame(height: 80)
+                        Rectangle()
+                            .fill(Color.clear)
+                            .frame(height: isLoading ? 80 : 0) // Animate height from 0 to 80
+                            .animation(.easeInOut(duration: 0.5), value: isLoading) // Animate based on isLoading
                     }
                 }
 
@@ -98,9 +102,10 @@ struct PreprintView: View {
         // Load the fact if available, otherwise fetch from the API
         switch preprint.fact {
         case .waitingForResponse:
-            isLoading = true
-            displayedFact = ""
-            fetchFactIfNeeded() // Fetch fact if needed
+            withAnimation(.easeInOut(duration: 0.5)) { // Animation needed here for magic reasons
+                isLoading = true
+            }
+            fetchFactIfNeeded()
         case .loaded(let fact):
             isLoading = false
             displayedFact = fact // Display the fact once it's loaded
