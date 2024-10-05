@@ -1,6 +1,12 @@
-// Preprint.swift
 import Foundation
 
+// Enum representing the state of the fact
+enum FactState: Equatable {
+    case waitingForResponse
+    case loaded(String)
+}
+
+// Updated Preprint struct to use FactState for the fact field
 struct Preprint: Equatable {
     let id: String
     let title: String
@@ -8,5 +14,5 @@ struct Preprint: Equatable {
     let authors: [String]
     let link: String
     let publishedDate: Date
-    let fact: String
+    var fact: FactState = .waitingForResponse  // Default state is waiting
 }

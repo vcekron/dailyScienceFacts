@@ -1,6 +1,5 @@
-// ContentView.swift
 import SwiftUI
-import UIKit // Import UIKit to use UIFont and UINavigationBarAppearance
+import UIKit // Required for UIFont and UINavigationBarAppearance customization
 
 struct ContentView: View {
     @StateObject private var viewModel = ContentViewModel()
@@ -8,11 +7,13 @@ struct ContentView: View {
     init() {
         // Customize the navigation bar appearance
         let appearance = UINavigationBarAppearance()
-        appearance.configureWithDefaultBackground()
+        appearance.configureWithDefaultBackground() // Use default background for the navigation bar
         appearance.titleTextAttributes = [
+            // Set custom font and color for the title text
             .font: UIFont(name: "Palatino-Bold", size: 24)!,
             .foregroundColor: UIColor.label
         ]
+        // Apply appearance to both standard and scroll-edge navigation bars
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
     }
@@ -20,23 +21,26 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
+                // Display the preprint if available, otherwise show a loading indicator
                 if let preprint = viewModel.preprint {
                     PreprintView(preprint: preprint)
                 } else {
-                    Spacer(minLength: 10)
+                    Spacer(minLength: 10) // Add space above the progress view
                     ProgressView("Loading...")
                 }
 
-                Spacer() // Added back the Spacer
+                Spacer() // Add flexible space at the bottom of the VStack
 
-                BottomNavigationBar()
+                BottomNavigationBar() // Custom bottom navigation component
             }
-            .navigationTitle("Daily Science Facts")
-            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("Daily Science Facts") // Set the navigation bar title
+            .navigationBarTitleDisplayMode(.inline) // Display title inline
             .task {
+                // Asynchronously load a new fact when the view appears
                 await viewModel.loadNewFact()
             }
             .refreshable {
+                // Allow pull-to-refresh to load a new fact
                 await viewModel.loadNewFact()
             }
         }

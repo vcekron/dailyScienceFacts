@@ -1,4 +1,3 @@
-// ArxivService.swift
 import Foundation
 import SWXMLHash
 import OpenAI
@@ -13,6 +12,12 @@ class ArxivService {
         return preprints.first
     }
     
+    // Fetch the actual fact asynchronously
+    func fetchSummary(for preprint: Preprint) async throws -> String {
+        return try await generateFact(from: preprint.abstract)  // OpenAI API call
+    }
+    
+    // Generate the fact using OpenAI API
     func generateFact(from summary: String) async throws -> String {
         let apiKey = APIKeyManager.getAPIKey()
         let openAI = OpenAI(apiToken: apiKey)
@@ -37,13 +42,13 @@ class ArxivService {
         return result.choices.first?.message.content?.string ?? "No fact generated"
     }
 
+    // Parse the Arxiv data to create Preprint objects
     private func parseArxivData(_ data: Data) async throws -> [Preprint] {
         let xml = SWXMLHash.XMLHash.parse(data)
         var preprints: [Preprint] = []
         
         for entry in xml["feed"]["entry"].all {
             let id = entry["id"].element?.text ?? ""
-            
             var title = entry["title"].element?.text ?? "No Title"
             title = title.replacingOccurrences(of: "\\s+", with: " ", options: .regularExpression)
             title = title.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -57,8 +62,6 @@ class ArxivService {
             let publishedString = entry["published"].element?.text ?? ""
             let publishedDate = ISO8601DateFormatter().date(from: publishedString) ?? Date()
             
-            let fact = try await generateFact(from: summary)
-            
             let preprint = Preprint(
                 id: id,
                 title: title,
@@ -66,7 +69,7 @@ class ArxivService {
                 authors: authors,
                 link: link,
                 publishedDate: publishedDate,
-                fact: fact
+                fact: .waitingForResponse  // Using enum to represent the waiting state
             )
             
             preprints.append(preprint)

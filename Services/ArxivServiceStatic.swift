@@ -14,6 +14,55 @@ class ArxivServiceStatic {
         return preprints.first
     }
     
+    // Fetch the actual fact asynchronously
+    func fetchSummary(for preprint: Preprint) async throws -> String {
+        return try await generateFact(from: preprint.abstract)  // OpenAI API call
+    }
+    
+    // Parse the Arxiv data to create Preprint objects
+    private func parseArxivData(_ data: Data) async throws -> [Preprint] {
+        let xml = SWXMLHash.XMLHash.parse(data)
+        var preprints: [Preprint] = []
+        
+        for entry in xml["feed"]["entry"].all {
+            let id = entry["id"].element?.text ?? ""
+            var title = entry["title"].element?.text ?? "No Title"
+            title = title.replacingOccurrences(of: "\\s+", with: " ", options: .regularExpression)
+            title = title.trimmingCharacters(in: .whitespacesAndNewlines)
+            
+            var summary = entry["summary"].element?.text ?? "No Summary"
+            summary = summary.replacingOccurrences(of: "\\s+", with: " ", options: .regularExpression)
+            summary = summary.trimmingCharacters(in: .whitespacesAndNewlines)
+            
+            let authors = entry["author"].all.compactMap { $0["name"].element?.text }
+            let link = entry["id"].element?.text ?? ""
+            let publishedString = entry["published"].element?.text ?? ""
+            let publishedDate = ISO8601DateFormatter().date(from: publishedString) ?? Date()
+            
+            let preprint = Preprint(
+                id: id,
+                title: title,
+                abstract: summary,
+                authors: authors,
+                link: link,
+                publishedDate: publishedDate,
+                fact: .waitingForResponse  // Using enum to represent the waiting state
+            )
+            
+            preprints.append(preprint)
+        }
+        
+        return preprints
+    }
+
+    // Get dummy response
+    private func getRandomSampleData() -> String? {
+        if sampleDataOptions.isEmpty { return nil }
+        let randomIndex = Int.random(in: 0..<sampleDataOptions.count)
+        return sampleDataOptions[randomIndex]
+    }
+    
+    // Generate the fact using OpenAI API
     func generateFact(from summary: String) async throws -> String {
         let apiKey = APIKeyManager.getAPIKey()
         let openAI = OpenAI(apiToken: apiKey)
@@ -36,50 +85,6 @@ class ArxivServiceStatic {
 
         let result = try await openAI.chats(query: chatQuery)
         return result.choices.first?.message.content?.string ?? "No fact generated"
-    }
-
-    private func getRandomSampleData() -> String? {
-        if sampleDataOptions.isEmpty { return nil }
-        let randomIndex = Int.random(in: 0..<sampleDataOptions.count)
-        return sampleDataOptions[randomIndex]
-    }
-
-    private func parseArxivData(_ data: Data) async throws -> [Preprint] {
-        let xml = SWXMLHash.XMLHash.parse(data)
-        var preprints: [Preprint] = []
-        
-        for entry in xml["feed"]["entry"].all {
-            let id = entry["id"].element?.text ?? ""
-            
-            var title = entry["title"].element?.text ?? "No Title"
-            title = title.replacingOccurrences(of: "\\s+", with: " ", options: .regularExpression)
-            title = title.trimmingCharacters(in: .whitespacesAndNewlines)
-            
-            var summary = entry["summary"].element?.text ?? "No Summary"
-            summary = summary.replacingOccurrences(of: "\\s+", with: " ", options: .regularExpression)
-            summary = summary.trimmingCharacters(in: .whitespacesAndNewlines)
-            
-            let authors = entry["author"].all.compactMap { $0["name"].element?.text }
-            let link = entry["id"].element?.text ?? ""
-            let publishedString = entry["published"].element?.text ?? ""
-            let publishedDate = ISO8601DateFormatter().date(from: publishedString) ?? Date()
-            
-            let fact = try await generateFact(from: summary)
-            
-            let preprint = Preprint(
-                id: id,
-                title: title,
-                abstract: summary,
-                authors: authors,
-                link: link,
-                publishedDate: publishedDate,
-                fact: fact
-            )
-            
-            preprints.append(preprint)
-        }
-        
-        return preprints
     }
 
     // Sample data options
