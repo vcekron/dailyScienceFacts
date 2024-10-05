@@ -7,18 +7,21 @@ import SWXMLHash
 import OpenAI
 
 class ArxivServiceStatic {
+    // Now this function is async because it calls an async method (getRandomSampleData)
     func fetchLatestPreprint() async throws -> Preprint? {
-        guard let sampleData = getRandomSampleData() else { return nil }
+        // Use 'await' to call the async getRandomSampleData method
+        guard let sampleData = await getRandomSampleData() else { return nil }
         guard let data = sampleData.data(using: .utf8) else { return nil }
+        // 'await' to parse the Arxiv data
         let preprints = try await parseArxivData(data)
         return preprints.first
     }
-    
+
     // Fetch the actual fact asynchronously
     func fetchSummary(for preprint: Preprint) async throws -> String {
         return try await generateFact(from: preprint.abstract)  // OpenAI API call
     }
-    
+
     // Parse the Arxiv data to create Preprint objects
     private func parseArxivData(_ data: Data) async throws -> [Preprint] {
         let xml = SWXMLHash.XMLHash.parse(data)
@@ -55,9 +58,13 @@ class ArxivServiceStatic {
         return preprints
     }
 
-    // Get dummy response
-    private func getRandomSampleData() -> String? {
+    // Updated to async to simulate network delay
+    private func getRandomSampleData() async -> String? {
         if sampleDataOptions.isEmpty { return nil }
+
+        // Simulate a 2-second delay to mimic network latency
+        try? await Task.sleep(nanoseconds: 2 * 1_000_000_000)
+        
         let randomIndex = Int.random(in: 0..<sampleDataOptions.count)
         return sampleDataOptions[randomIndex]
     }
